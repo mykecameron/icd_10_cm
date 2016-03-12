@@ -40,6 +40,9 @@
     "loader.js": "^4.0.0"
   },
   "dependencies": {
-    "ember-icis-auth": "^0.7.0"
+    "bower": "^1.7.7",
+    "ember-cli-dotenv": "^1.0.4",
+    "ember-icis-auth": "^0.7.0",
+    "ember-icis-model": "^0.4.4"
   }
 }

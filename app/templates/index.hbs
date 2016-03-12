@@ -1,0 +1,14 @@
+<div>
+  Search: {{input value=searchTerms}}
+</div>
+
+<div>
+  <table>
+    {{#each medicalCodes as |medicalCode|}}
+      <tr>
+        <td>{{medicalCode.description}}</td>
+      </tr>
+    {{/each}}
+  </table>
+</div>
+
