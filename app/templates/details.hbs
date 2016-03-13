@@ -1,10 +1,10 @@
-<div>
+<div class="modifier-select-container">
   {{#each modifiertype as |type|}}
     {{modifier-select modifiertype=type modifierSelected="modifierSelected"}}
   {{/each}}
 </div>
 
-<table>
+<table class="matching-codes">
   {{#each enabledModifiercombinations as |combination|}}
   <tr>
     <td>{{combination.I10_TITLE}}</td>

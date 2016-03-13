@@ -1,14 +1,12 @@
 <div>
-  <div>
-    {{title}}
-  </div>
-
-  <select multiple onchange={{ action 'modifierSelected' value="target.value"}}>
-    {{#each modifiers as |modifier|}}
-    <option value={{modifier.MODIFIER_CODE}}>
-      {{modifier.MODIFIER_TITLE}}
-    </option>
-    {{/each}}
-  </select>
-
+  {{title}}
 </div>
+
+<select multiple onchange={{ action 'modifierSelected' value="target.value"}} class="modifier-select-list">
+  <option></option>
+  {{#each modifiers as |modifier|}}
+  <option value={{modifier.MODIFIER_CODE}}>
+    {{modifier.MODIFIER_TITLE}}
+  </option>
+  {{/each}}
+</select>

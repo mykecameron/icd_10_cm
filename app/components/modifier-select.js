@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  classNames: ['modifier-select'],
+
   title: function() {
     return this.get('modifiertype.TITLE');
   }.property('modifiertype'),
@@ -19,7 +21,10 @@ export default Ember.Component.extend({
   }.property('selectedModifierCode', 'modifiers'),
 
   validModifierCombinations: function() {
-    return this.get('selectedModifier.MODIFIERCOMBINATIONS').split(',');
+    var modifierCominations = this.get('selectedModifier.MODIFIERCOMBINATIONS');
+    if (modifierCominations) {
+      return this.get('selectedModifier.MODIFIERCOMBINATIONS').split(',');
+    }
   }.property('selectedModifier'),
 
   actions: {
