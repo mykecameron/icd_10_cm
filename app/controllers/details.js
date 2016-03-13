@@ -1,24 +1,30 @@
 import Ember from 'ember';
+import _ from 'underscore';
 
 export default Ember.Controller.extend({
-  selectedModifiers: [],
-
   enabledModifiercombinations: function() {
-    // this must be wrong?!
     var combinations = this.get('modifiercombination');
-    return combinations.filter((combination) => {
-      var modifiers = combination.MODIFIERS.split(',');
-      var selectedModifiers = this.get('selectedModifiers');
+    var enabledModifierCombinationCodes = this.get('enabledModifierCombinationCodes');
+    if (enabledModifierCombinationCodes.length === 0) {
+      return combinations;
+    }
 
-      return modifiers.every((modifier) => {
-        return selectedModifiers.contains(modifier);
-      });
+    return combinations.filter((item) => {
+      return enabledModifierCombinationCodes.contains(item.CODE);
     });
-  }.property('modifiercombination'),
+  }.property('modifiercombination', 'enabledModifierCombinationCodes.@each'),
+
+  selectedModifiers: {},
+  enabledModifierCombinationCodes: [],
+
 
   actions: {
-    modifierSelected(modifierCode) {
-      this.get('selectedModifiers').pushObject(modifierCode);
+    modifierSelected(modifierType, modifierCombinations) {
+      var selectedModifiers = this.get('selectedModifiers');
+      selectedModifiers[modifierType] = modifierCombinations;
+
+      var modifierIntersection = _.intersection(..._.values(selectedModifiers));
+      this.set('enabledModifierCombinationCodes', modifierIntersection);
     }
   }
 });
