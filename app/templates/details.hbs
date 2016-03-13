@@ -1,0 +1,28 @@
+<div>
+  {{#each modifiertype as |type|}}
+  <div>
+    <div>
+      {{type.TITLE}}
+    </div>
+
+    <select multiple onchange={{action "modifierSelected" value="target.value"}}>
+      {{#each type.MODIFIERS.MODIFIER as |modifier|}}
+      <option value={{modifier.MODIFIER_CODE}}>
+        {{modifier.MODIFIER_TITLE}}
+      </option>
+      {{/each}}
+    </select>
+
+  </div>
+  {{/each}}
+</div>
+
+<table>
+  {{#each enabledModifiercombinations as |combination|}}
+  <tr>
+    <td>{{combination.I10_TITLE}}</td>
+    <td>{{combination.I10_CODE}}</td>
+  </tr>
+  {{/each}}
+</table>
+
