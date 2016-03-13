@@ -6,6 +6,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('target-auth', { path: '/*target/auth' });
   this.route('auth');
   this.route('details', { path: '/details/:medical_code_id' });
 });

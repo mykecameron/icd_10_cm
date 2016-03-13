@@ -1,0 +1,13 @@
+<div>
+  Search: {{input value=query}}
+</div>
+
+<div>
+  <table>
+    {{#each medicalCodes as |medicalCode|}}
+      <tr>
+        <td>{{#link-to 'details' medicalCode.id}}{{medicalCode.description}}{{/link-to}}</td>
+      </tr>
+    {{/each}}
+  </table>
+</div>
