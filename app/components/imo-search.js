@@ -10,6 +10,10 @@ export default Ember.Component.extend({
     if (query) {
       this.set('medicalCodes', store.query('medical-code', { query: query }));
     }
+  },
+
+  onQueryChange: function() {
+    Ember.run.debounce(this, this.searchMedicalCodes, 200);
   }.observes('query'),
 
   actions: {
