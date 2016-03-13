@@ -6,7 +6,7 @@
   <table>
     {{#each medicalCodes as |medicalCode|}}
       <tr>
-        <td>{{#link-to 'details' medicalCode.id}}{{medicalCode.description}}{{/link-to}}</td>
+        <td><a {{action 'codeSelected' medicalCode}}>{{medicalCode.description}}</a></td>
       </tr>
     {{/each}}
   </table>
