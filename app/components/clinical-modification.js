@@ -31,6 +31,10 @@ export default Ember.Component.extend({
     });
   }.property('modifiercombination', 'enabledModifierCombinationCodes.@each'),
 
+  onlyOneEnabledModifiercombination: function() {
+    return this.get('enabledModifiercombinations.length') === 1;
+  }.property('enabledModifiercombinations'),
+
   selectedModifiers: {},
   enabledModifierCombinationCodes: [],
 

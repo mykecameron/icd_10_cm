@@ -1,4 +1,4 @@
-<div>
+<div class='search-input'>
   Search: {{input value=query}}
 </div>
 
@@ -6,7 +6,13 @@
   <table>
     {{#each medicalCodes as |medicalCode|}}
       <tr>
-        <td><a {{action 'codeSelected' medicalCode}}>{{medicalCode.description}}</a></td>
+        <td>
+          {{#if medicalCode.needsPostCoord}}
+          <a href="javascript:void(0)" {{action 'codeSelected' medicalCode}}>{{medicalCode.description}} ({{medicalCode.icd10_description}} - {{medicalCode.icd10_code}})</a>
+          {{else}}
+            {{medicalCode.description}} ({{medicalCode.icd10_description}} - {{medicalCode.icd10_code}})
+          {{/if}}
+        </td>
       </tr>
     {{/each}}
   </table>
