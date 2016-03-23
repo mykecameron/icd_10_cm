@@ -6,9 +6,13 @@
 
 <table class="matching-codes">
 
-  <!-- {{#if onlyOneEnabledModifiercombination }} -->
-  <!--   <tr><td colspan=2 class="winner"><img src="assets/images/sonic.gif"></td></tr> -->
-  <!-- {{/if}} -->
+  {{#if onlyOneEnabledModifiercombination }}
+    <tr><td colspan=2>
+        <div class="spiny">
+          <img src="assets/images/spiny.gif">
+      </div>
+    </td></tr>
+  {{/if}}
 
   {{#each enabledModifiercombinations as |combination|}}
   <tr>

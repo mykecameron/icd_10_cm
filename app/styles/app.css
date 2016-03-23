@@ -26,3 +26,13 @@ body {
   height: 3em;
 }
 
+.spiny {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  left: 325px;
+}
+
+.spiny img.flip {
+  transform: scaleX(-1);
+}

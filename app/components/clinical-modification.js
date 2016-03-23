@@ -35,6 +35,24 @@ export default Ember.Component.extend({
     return this.get('enabledModifiercombinations.length') === 1;
   }.property('enabledModifiercombinations'),
 
+  slideSpiny: function() {
+    var animate = () => {
+        this.$('.spiny').animate({left: '-=325'}, 5000, () => {
+          this.$('.spiny img').addClass('flip');
+          this.$('.spiny').animate({left: '+=325'}, 5000, () => {
+            this.$('.spiny img').removeClass('flip');
+            animate();
+          });
+        });
+    };
+
+    if(this.get('onlyOneEnabledModifiercombination')){
+      setTimeout(() => {
+        animate();
+      }, 200);
+    }
+  }.observes('onlyOneEnabledModifiercombination'),
+
   selectedModifiers: {},
   enabledModifierCombinationCodes: [],
 
